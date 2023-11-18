@@ -130,12 +130,13 @@ input:focus {
 .expiry-cvv-container {
     display: flex;
     justify-content: space-between;
+    /* outline: 1px solid red; */
 }
 
 .mm-yy-container {
     width: 48%;
     /* padding-right: 2%; */
-    /* outline: 2px solid red; */
+    outline: 2px solid red;
     height: 100%;
 }
 
@@ -143,15 +144,15 @@ input:focus {
 
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
     /* height: 100%; */
 }
 .mm-yy input {
-    width: 32%;
+    width: 30%;
     /* height: 40%; */
     /* padding-top: 5%; */
-    padding-top: 12%;
-   padding-bottom: 8%;
+    padding-top: 8%;
+   padding-bottom: 7%;
 }
 
 .cvv-container {
