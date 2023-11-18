@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+
+:root {
+    /* ### Primary */
+
+    --Lineargradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%); /*(active input border)*/
+    --Red: hsl(0, 100%, 66%);  /*(input errors)*/
+
+    /* Neutral */
+    --White: hsl(0, 0%, 100%);
+    --Lightgrayishviolet: hsl(270, 3%, 87%);
+    --Darkgrayishviolet: hsl(279, 6%, 55%);
+    --Verydarkviolet: hsl(278, 68%, 11%);
+
+
+    
+}
+
+body {
+   margin: 0px;
+    width: 100vw;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.bg-main {
+    background-image: url('images/bg-main-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.bg-card-back {
+    background-image: url('images/bg-card-back.png');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 4%;
+    height: 80%;
+    width: 80%;  
+}
+
+input[name=CVV-card] {
+    /* outline: 2px solid red; */
+    text-align: end;
+    color: white;
+    height: 10%;
+    position: relative;
+    right: 10%;
+    background-color: transparent;
+    border: none;
+}
+
+.bg-card-front {
+    background-image: url('images/bg-card-front.png');
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 4%;
+    top: 46.5%;
+    height: 80%;
+    width: 80%;
+}
+
+main {
+    /* outline: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    /* width: 90%; */
+}
+form {
+    /* outline: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90%;
+    padding-top: 20%;
+    /* outline: 2px solid red; */
+    height: 50vh;
+}
+.form-sections{
+    /* outline: 2px solid darkblue;  */
+    width: 100%;
+    height: 30%;
+  
+}
+
+label {
+    font-size: small;
+    color: var(--Verydarkviolet);
+    font-weight: 500;
+    letter-spacing: 1px;
+    /* padding-bottom: 20%; */
+    
+}
+
+form input {
+    border: 1px solid var(--Lightgrayishviolet);
+    /* outline: 2px solid black; */
+    width: 99%;
+    height: 45%;
+    border-radius: 10px;
+    margin-top: 6px;
+    /* padding-top: 10px; */
+   
+}
+.expiry-cvv-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mm-yy-container {
+    width: 47%;
+    /* padding-right: 2%; */
+    /* outline: 2px solid red; */
+    height: 100%;
+}
+
+.mm-yy {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 100%;
+}
+.mm-yy input {
+    width: 45%;
+    height: 45%;
+}
+
+.cvv-container {
+    width: 48%;
+    height: 100%;
+    /* outline: 2px solid teal; */
+    padding-right: 1%;
+}
+
+.cvv-container input {
+    
+    width: 99%;
+    height: 45%;
+}
+
+
+.confirm-btn{
+    width: 100%;
+    height: 30%;
+    /* outline: 2px solid red; */
+}
+
+.confirm-btn button{
+    width: 100%;
+    height: 60%;
+    border: none;
+    color: var(--White);
+    background-color: var(--Verydarkviolet);
+    border-radius: 10px;
+    font-size: large;
+    text-align: center;
+    letter-spacing: 1.5px;
+
+}
+

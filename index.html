@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Interactive Card Details Form</title>
+</head>
+<body>
+    <div class="bg-main">
+        <div class="bg-card-back">
+           <input type="text" name="CVV-card" id="">
+        </div>
+        <div class="bg-card-front">
+            <div class="icon"></div>
+            <div class="card-number"></div>
+        </div>
+    </div>
+    
+    <main>
+        <form action="">
+            <div class="form-sections">
+                <label for="cardholder-name">CARDHOLDER NAME</label> <br>
+                <input type="text" name="cardholder-name" id="cardholder-name">
+            </div>
+            <div class="form-sections">
+                <label for="card-number">CARD NUMBER</label> <br>
+                <input type="text" name="card-number" id="card-number">
+            </div>
+           <div class="expiry-cvv-container form-sections">
+                <div class="mm-yy-container">
+                    <label for="expiry-date">EXP. DATE (MM/YY)</label> <br>
+                    <div class="mm-yy">
+                        <input type="number" name="MM" id="MM">
+                        <input type="number" name="YY" id="YY">
+                    </div>
+                </div>
+                <div class="cvv-container">
+                    <label for="CVV-form">CVV</label> <br>
+                    <input type="text" name="CVV-form" id="CVV-form">
+                </div>
+           </div>
+
+           <div class="confirm-btn">
+                <button>Confirm</button>
+           </div>
+        </form>
+    </main>
+</body>
+</html>
