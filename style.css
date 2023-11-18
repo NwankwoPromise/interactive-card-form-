@@ -105,6 +105,8 @@ label {
 
 form input {
     border: 1px solid var(--Lightgrayishviolet);
+    outline: none;
+    font-size: 16px;
     /* outline: 2px solid black; */
     width: 94%;
     /* height: 46%; */
@@ -116,6 +118,14 @@ form input {
    padding-left: 20px;
     /* padding-top: 10px; */
    
+}
+
+input:focus {
+    font-size: 16px;
+}
+
+.input-hover {
+    outline: 1px solid var(--Verydarkviolet);
 }
 .expiry-cvv-container {
     display: flex;
