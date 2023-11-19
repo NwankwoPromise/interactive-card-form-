@@ -146,14 +146,14 @@ form input {
     padding-top: .6875rem;
     padding-bottom: .625rem;
     padding-left: .9375rem;    
-    /* transition: border-color .7s ;    */
+    transition: border-color 1s ;   
     appearance: none;
 }
 
 input:focus {
     font-size: 1rem;
     border: 1px solid var(--Verydarkviolet);
-    transition: border-color .7s ;   
+    transition: border-color 1s ;   
     
 
 }
