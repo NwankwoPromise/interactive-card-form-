@@ -20,8 +20,10 @@
 body {
    margin: 0px;
     width: 100vw;
+    font-size: 1rem;
     font-family: 'Space Grotesk', sans-serif;
 }
+
 .bg-main {
     background-image: url('images/bg-main-mobile.png');
     background-repeat: no-repeat;
@@ -36,38 +38,74 @@ body {
 
 .bg-card-back {
     background-image: url('images/bg-card-back.png');
-    background-size: contain;
-    background-position: right;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: end;
     margin-right: 4%;
-    height: 80%;
-    width: 80%;  
+    height: 60%;
+    width: 18.25rem;
+    border-radius: 8px;
+    /* outline: 2px solid red;   */
 }
 
-input[name=CVV-card] {
-    /* outline: 2px solid red; */
-    text-align: end;
+.card-CVV {
+    text-align: center;
     color: white;
-    height: 10%;
+    font-size: .875rem;
+    opacity: .8;
     position: relative;
-    right: 10%;
-    background-color: transparent;
-    border: none;
+    right: 12%;
+    letter-spacing: .125rem;
 }
 
 .bg-card-front {
+    border-radius: 8px;
     background-image: url('images/bg-card-front.png');
-    background-size: contain;
+    background-size:cover;
     background-position: left;
     background-repeat: no-repeat;
     position: absolute;
     left: 4%;
-    top: 46.5%;
-    height: 80%;
-    width: 80%;
+    top: 54%;
+    /* height: 60%; */
+    padding: 1.375rem 1.375rem .75rem 1.375rem;
+    box-shadow: 5px 40px 30px -25px var(--Lightgrayishviolet);
+}
+
+
+.card-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    /* outline: 1px solid red; */
+    background-image: url("/images/favicon-32x32.png");
+    margin-bottom: 1.875rem;
+}
+
+.card-number {
+    color: var(--White);
+    font-size: 1.25rem;
+    font-weight: 100;
+    letter-spacing: .1563rem;
+    /* outline: 2px solid blue; */
+}
+
+/* .card-name-expiry-date-container {
+    outline: 1px solid red;
+} */
+
+.card-name-expiry-date-container {
+    display: flex;
+    justify-content: space-between;
+    color: var(--White);
+    font-size: .625rem;
+    letter-spacing: .0938rem;
+    opacity: .8;
+    margin-top: -0.625rem;
+
 }
 
 main {
@@ -75,124 +113,101 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-    /* width: 90%; */
 }
+
 form {
     /* outline: 2px solid green; */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     width: 85%;
     padding-top: 20%;
-    height: 50vh;
 }
+
 .form-sections{
     /* outline: 2px solid darkblue;  */
-    width: 100%;
-    height: 30%;
-  
+    padding-bottom: 1.25rem;
 }
 
 label {
-    font-size: small;
+    font-size: .875rem;
+    /* font-size: small; */
     color: var(--Verydarkviolet);
     font-weight: 600;
-    letter-spacing: 1px;
-    /* padding-bottom: 20%; */
-    
+    letter-spacing: .0625rem;
 }
 
 form input {
     border: 1px solid var(--Lightgrayishviolet);
-    outline: none;
-    font-size: 16px;
-    /* outline: 2px solid black; */
+    font-size: 1rem;
+    outline: 1px solid transparent;
     width: 94%;
-    /* height: 46%; */
     border-radius: 10px;
-    margin-top: 6px;
-    /* text-align: center; */
-   padding-top: 6%;
-   padding-bottom: 4%;
-   padding-left: 20px;
-    /* padding-top: 10px; */
-   
+    margin-top: .375rem;   
+   padding-top: .6875rem;
+   padding-bottom: .625rem;
+   padding-left: .9375rem;    
+   transition: outline .7s ease-out;   
+
 }
 
 input:focus {
-    font-size: 16px;
-}
-
-.input-hover {
+    font-size: 1rem;
     outline: 1px solid var(--Verydarkviolet);
 }
+
+/* .input-hover {
+    outline: 1px solid var(--Verydarkviolet);
+} */
 .expiry-cvv-container {
     display: flex;
-    justify-content: space-between;
-    /* outline: 1px solid red; */
+    align-items: end;
+    padding-bottom: 1.875rem;
 }
 
 .mm-yy-container {
-    width: 48%;
-    /* padding-right: 2%; */
-    outline: 2px solid red;
-    height: 100%;
+    max-width: 50%;
 }
 
 .mm-yy {
-
     display: flex;
-    justify-content: space-between;
-    /* width: 100%; */
-    /* height: 100%; */
 }
+
 .mm-yy input {
     width: 30%;
-    /* height: 40%; */
-    /* padding-top: 5%; */
-    padding-top: 8%;
-   padding-bottom: 7%;
+    margin-right: 10%;
+    padding-top: .6875rem;
+    padding-bottom: .625rem;
 }
 
 .cvv-container {
-    width: 48%;
-    /* height: 100%; */
-    /* outline: 2px solid teal; */
-    /* padding-right: 1%; */
+    max-width: 50%;
 }
 
 .cvv-container input {
     
-    width: 86%;
-    /* height: 45%; */
-    padding-top: 12%;
-   padding-bottom: 8%;
+    width: 90%;
+    padding-top: .6875rem;
+    padding-bottom: .625rem;
+
 }
 
-
-.confirm-btn{
-    width: 100%;
-    height: 30%;
-    /* outline: 2px solid red; */
-}
 
 .confirm-btn button{
     width: 100%;
-    height: 60%;
+    /* height: 60%; */
     border: none;
     color: var(--White);
     background-color: var(--Verydarkviolet);
     border-radius: 10px;
-    font-size: large;
+    font-size: 1.125rem;
     text-align: center;
     letter-spacing: 1.5px;
-
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 ::placeholder {
     color: var(--Lightgrayishviolet);
-    font-size: 20px;
+    font-size: 1rem;
     font-family: 'Space Grotesk', sans-serif;
-
 }
+
