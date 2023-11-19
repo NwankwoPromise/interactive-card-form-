@@ -137,22 +137,25 @@ label {
 }
 
 form input {
-    border: none;
+    outline-color: transparent;
     font-size: 1rem;
-    outline: 1px solid var(--Lightgrayishviolet);
+    border: 1px solid var(--Lightgrayishviolet);
     width: 94%;
     border-radius: 10px;
     margin-top: .375rem;   
    padding-top: .6875rem;
    padding-bottom: .625rem;
    padding-left: .9375rem;    
-   transition: outline .7s ease-out;   
+   transition: outline-color .7s ease-in;   
 
 }
 
 input:focus {
     font-size: 1rem;
+    border: none;
     outline: 1px solid var(--Verydarkviolet);
+    
+
 }
 
 /* .input-hover {
