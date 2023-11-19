@@ -143,17 +143,16 @@ form input {
     width: 94%;
     border-radius: 10px;
     margin-top: .375rem;   
-   padding-top: .6875rem;
-   padding-bottom: .625rem;
-   padding-left: .9375rem;    
-   transition: outline-color .7s ease-in;   
-
+    padding-top: .6875rem;
+    padding-bottom: .625rem;
+    padding-left: .9375rem;    
+    transition: border-color .7s ;   
+    appearance: none;
 }
 
 input:focus {
     font-size: 1rem;
-    border: none;
-    outline: 1px solid var(--Verydarkviolet);
+    border: 1px solid var(--Verydarkviolet);
     
 
 }
