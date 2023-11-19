@@ -148,6 +148,7 @@ form input {
     padding-left: .9375rem;    
     transition: border 1s ;   
     appearance: none;
+    box-shadow: none !important; 
 }
 
 input:focus {
