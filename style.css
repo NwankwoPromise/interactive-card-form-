@@ -137,24 +137,30 @@ label {
 }
 
 form input {
+    /* border: none; */
+    box-shadow: 0 0 0 1px var(--Lightgrayishviolet);
     outline-color: transparent;
     font-size: 1rem;
-    border: 1px solid var(--Lightgrayishviolet);
+    /* border: 1px solid var(--Lightgrayishviolet); */
     width: 94%;
     border-radius: 10px;
     margin-top: .375rem;   
     padding-top: .6875rem;
     padding-bottom: .625rem;
     padding-left: .9375rem;    
-    transition: border 1s ;   
-    appearance: none;
-    box-shadow: none !important; 
+    transition: 1s ease-in-out;   
+    /* appearance: none; */
+    /* box-shadow: none !important;  */
 }
 
 input:focus {
     font-size: 1rem;
-    border: 1px solid var(--Verydarkviolet);
-    transition: border 1s ;   
+    /* border: 1px solid var(--Verydarkviolet); */
+    transition: 1s ease-in-out;
+    box-shadow: 0 0 0 1px red;
+    outline-color: transparent;
+
+   
     
 
 }
