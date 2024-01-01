@@ -8,59 +8,83 @@
     <title>Interactive Card Details Form</title>
 </head>
 <body>
-    <div class="bg-main">
-        <div class="bg-card-back">
-           <p class="card-CVV">000</p>
-        </div>
-        <div class="card-front-container">
-            <div class="bg-card-front">
-                <div class="bg-card-front-container">
-                    <div class="card-icon"></div>
-                    <div class="card-number-container">
-                        <p class="card-number">0000 0000 0000 0000</p>
-                    </div>
-                    <div class="card-name-expiry-date-container">
-                        <div class="cardholder-name-container">
-                            <p class="cardholder-name">JANE APPLESEED</p>
-                        </div>
-                        <div class="expiry-date-container">
-                            <p class="expiry-date">00/00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-    </div>
-    
-    <main>
-        <form action="">
-            <div class="form-sections">
-                <label for="form-cardholder-name">CARDHOLDER NAME</label> <br>
-                <input type="text" name="form-cardholder-name" id="form-cardholder-name" placeholder="e.g. Jane Appleseed">
-            </div>
-            <div class="form-sections">
-                <label for="form-card-number">CARD NUMBER</label> <br>
-                <input type="text" name="form-card-number" id="form-card-number" placeholder="e.g. 1234 5678 9123 0000">
-            </div>
-           <div class="expiry-cvv-container form-sections">
-                <div class="mm-yy-container">
-                    <label for="form-expiry-date">EXP. DATE (MM/YY)</label> <br>
-                    <div class="mm-yy" id="form-expiry-date">
-                        <input type="number" name="form-MM" id="form-MM" placeholder="MM">
-                        <input type="number" name="form-YY" id="form-YY" placeholder="YY">
-                    </div>
-                </div>
-                <div class="cvv-container">
-                    <label for="form-CVV">CVV</label> <br>
-                    <input type="text" name="form-CVV" id="form-CVV" placeholder="e.g. 123">
-                </div>
-           </div>
 
-           <div class="confirm-btn">
-                <button>Confirm</button>
+    <main>
+        <div class="bg-main">
+           <div class="card-container">
+             <div class="bg-card-back-container">
+                <div class="card-cvv-container">
+                    <span class="card-cvv">000</span>
+                </div>
+            </div>
+            <div class="bg-card-front-container">
+                <div class="bg-card-front">
+                    <div class="card-icon"></div>
+                    <div class="card-details">
+                        <div class="card-number-container">
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                            <span>0<br></span>
+                        </div>
+                        <div class="card-name-expiry-date-container">
+                            <div class="cardholder-name-container">
+                                <p class="cardholder-name" id="cardholder-name">JANE APPLESEED</p>
+                            </div>
+                            <div class="expiry-date-container">
+                                <p class="expiry-date">00/00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
            </div>
-        </form>
+        </div>
+        <div class="form-container">
+            <form action="">
+                <div class="form-sections">
+                    <label for="form-cardholder-name">CARDHOLDER NAME</label> <br>
+                    <input type="text" name="form-cardholder-name" id="form-cardholder-name" placeholder="e.g. Jane Appleseed">
+                </div>
+                <div class="form-sections">
+                    <label for="form-card-number">CARD NUMBER</label> <br>
+                    <input type="number" pattern="[0-9]*" inputmode="numeric"  name="form-card-number" id="form-card-number" placeholder="e.g. 1234 5678 9123 0000">
+                </div>
+               <div class="expiry-cvv-container form-sections">
+                    <div class="mm-yy-container">
+                        <label for="form-expiry-date">EXP. DATE (MM/YY)</label> <br>
+                        <div class="mm-yy" id="form-expiry-date">
+                            <input type="number" name="form-MM" id="form-MM" placeholder="MM">
+                            <input type="number" name="form-YY" id="form-YY" placeholder="YY">
+                        </div>
+                    </div>
+                    <div class="cvv-container">
+                        <label for="form-CVV">CVV</label> <br>
+                        <input type="number" name="form-CVV" id="form-CVV" placeholder="e.g. 123">
+                    </div>
+               </div>
+    
+               <div class="confirm-btn">
+                    <button>Confirm</button>
+               </div>
+            </form>
+        </div>
     </main>
+    <script src="index.js"></script>
 </body>
 </html>
