@@ -14,40 +14,22 @@
            <div class="card-container">
              <div class="bg-card-back-container">
                 <div class="card-cvv-container">
-                    <span class="card-cvv">000</span>
+                    <span class="card-cvv" id="card-cvv">000</span>
                 </div>
             </div>
             <div class="bg-card-front-container">
                 <div class="bg-card-front">
                     <div class="card-icon"></div>
                     <div class="card-details">
-                        <div class="card-number-container">
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
-                            <span>0<br></span>
+                        <div class="card-number-container" >
+                           <p id="card-number">0000 0000 0000 0000</p>
                         </div>
                         <div class="card-name-expiry-date-container">
                             <div class="cardholder-name-container">
                                 <p class="cardholder-name" id="cardholder-name">JANE APPLESEED</p>
                             </div>
                             <div class="expiry-date-container">
-                                <p class="expiry-date">00/00</p>
+                                <p class="expiry-date"><span id="card-MM">00</span>/<span id="card-YY">00</span></p>
                             </div>
                         </div>
                     </div>
@@ -63,19 +45,19 @@
                 </div>
                 <div class="form-sections">
                     <label for="form-card-number">CARD NUMBER</label> <br>
-                    <input type="number" pattern="[0-9]*" inputmode="numeric"  name="form-card-number" id="form-card-number" placeholder="e.g. 1234 5678 9123 0000">
+                    <input type="text" inputmode="numeric"  name="form-card-number" id="form-card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
                 </div>
                <div class="expiry-cvv-container form-sections">
                     <div class="mm-yy-container">
                         <label for="form-expiry-date">EXP. DATE (MM/YY)</label> <br>
                         <div class="mm-yy" id="form-expiry-date">
-                            <input type="number" name="form-MM" id="form-MM" placeholder="MM">
-                            <input type="number" name="form-YY" id="form-YY" placeholder="YY">
+                            <input type="number" name="form-MM" id="form-MM" placeholder="MM" maxlength="2">
+                            <input type="number" name="form-YY" id="form-YY" placeholder="YY" maxlength="2">
                         </div>
                     </div>
                     <div class="cvv-container">
                         <label for="form-CVV">CVV</label> <br>
-                        <input type="number" name="form-CVV" id="form-CVV" placeholder="e.g. 123">
+                        <input type="number" name="form-cvv" id="form-cvv" placeholder="e.g. 123" minlength="3" maxlength="3">
                     </div>
                </div>
     

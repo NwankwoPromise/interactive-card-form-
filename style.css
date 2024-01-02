@@ -129,15 +129,17 @@ p{
     font-size: 1rem;
     letter-spacing: .0938rem;
     opacity: .8;
+    width: 206px;
 
 }
-.card-number-container span:nth-child(4n) {
+.card-number-container p:nth-child(4n) {
     margin-right: 10px;
 }
 
-.cardholder-name{
+.cardholder-name {
     text-transform: uppercase;
 }
+
 .card-name-expiry-date-container {
     display: flex;
     justify-content: space-between;
