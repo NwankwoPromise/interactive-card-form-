@@ -46,7 +46,6 @@ var year = String(currentDate.getFullYear()).slice(-2); // Get the last 2 digits
 // var monthPattern = /^(0?[1-9]|1[012])$/;
 
 formExpiryMonth.addEventListener('input', function(){
-    if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
     if (formExpiryMonth.value.length === 0) {
         cardExpiryMonth.textContent = '00';
     }   
@@ -60,6 +59,17 @@ formExpiryMonth.addEventListener('input', function(){
         cardExpiryMonth.textContent = this.value;  
         //work on removing beginning zero if user wants to type 10-12
         console.log(this.value[1]) 
+        console.log(this.value[0]) 
+
+        if(this.value.length > 2) {
+            this.value.replace(this.value[0], this.value[1]) 
+            this.value = this.value.slice(0, this.maxLength);
+            console.log(this.value[0])
+            console.log(this.value[1]) 
+ 
+            console.log(this.value) 
+            // keep working
+        } 
     } 
 })
 formExpiryYear.addEventListener('input', function(){
