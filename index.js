@@ -31,13 +31,15 @@ formNumber.addEventListener('input', function() {
 } )
 // Create a new Date object for the current date
 var currentDate = new Date();
-
-// Add 3 years to the current date
-currentDate.setFullYear(currentDate.getFullYear() + 3);
+console.log(currentDate)
+// // Add 3 years to the current date
+// currentDate.setFullYear(currentDate.getFullYear() + 3);
 
 // Get the month and year
 var month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JavaScript
+
 var year = String(currentDate.getFullYear()).slice(-2); // Get the last 2 digits of the year
+console.log(year)
 
 // formExpiryMonth.value = month
 // formExpiryYear.value = year
@@ -45,33 +47,41 @@ var year = String(currentDate.getFullYear()).slice(-2); // Get the last 2 digits
 // cardExpiryYear.textContent = year
 // var monthPattern = /^(0?[1-9]|1[012])$/;
 
-formExpiryMonth.addEventListener('input', function(){
-    if (formExpiryMonth.value.length === 0) {
+formExpiryMonth.addEventListener('input', function() {
+    // if input field is empty OR it contains just zero
+    if (this.value.length === 0 || this.value == 0) {
         cardExpiryMonth.textContent = '00';
-    }   
-    else {
-        // Check if the input is a single digit number
-        if (/^[1-9]$/.test(this.value)) {
-            // Add a leading zero
-            this.value = '0' + this.value;
-        }
-        // if(this.value.conta)
-        cardExpiryMonth.textContent = this.value;  
-        //work on removing beginning zero if user wants to type 10-12
-        console.log(this.value[1]) 
-        console.log(this.value[0]) 
+        this.value = this.value.substring(1);
 
-        if(this.value.length > 2) {
-            this.value.replace(this.value[0], this.value[1]) 
-            this.value = this.value.slice(0, this.maxLength);
-            console.log(this.value[0])
-            console.log(this.value[1]) 
+    } else{
+        cardExpiryMonth.textContent = this.value;  
+
+    }
  
-            console.log(this.value) 
-            // keep working
-        } 
+    // If the input is a single digit number 
+    if (/^[1-9]$/.test(this.value)) {
+        // Add a leading zero
+        this.value = '0' + this.value;
+        cardExpiryMonth.textContent = this.value; 
+    }
+
+    // this block of code below removes the leading zero if user wants to type 10-12
+    // check if the input value is greater than set maxlength (2) AND its second value is 1
+    if (this.value.length > this.maxLength && this.value[1] == 1) {
+        // check if the extra value being added is 1,2 or 3 
+        if (this.value[2] == '0' || this.value[2] == '1' || this.value[2] == '2') {
+            this.value = this.value.substring(1);
+            cardExpiryMonth.textContent = this.value;
+        }
     } 
+    // this ensures max number of digits input is 2
+    if  (this.value.length > this.maxLength) {
+        this.value = this.value.slice(0, this.maxLength);
+        cardExpiryMonth.textContent = this.value;  
+    }  
 })
+
+
 formExpiryYear.addEventListener('input', function(){
     if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
 
@@ -83,6 +93,10 @@ formExpiryYear.addEventListener('input', function(){
         cardExpiryYear.textContent = this.value;   
     } 
 })
+
+if (formExpiryYear.value < year) {
+    console.log('expired card')
+}
 formCVV.addEventListener('input', function() {
     if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
 
