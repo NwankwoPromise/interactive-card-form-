@@ -31,7 +31,6 @@ formNumber.addEventListener('input', function() {
 } )
 // Create a new Date object for the current date
 var currentDate = new Date();
-console.log(currentDate)
 // // Add 3 years to the current date
 // currentDate.setFullYear(currentDate.getFullYear() + 3);
 
