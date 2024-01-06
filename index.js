@@ -29,6 +29,7 @@ formNumber.addEventListener('input', function() {
         cardNumber.textContent = this.value;   
     } 
 } )
+
 // Create a new Date object for the current date
 var currentDate = new Date();
 // // Add 3 years to the current date
@@ -82,20 +83,29 @@ formExpiryMonth.addEventListener('input', function() {
 
 
 formExpiryYear.addEventListener('input', function(){
-    if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
-
-    if (formExpiryYear.value.length === 0) {
+    if (this.value.length === 0 || this.value == 0) {
         cardExpiryYear.textContent = '00';
-    }   
+    } 
     else {
-
         cardExpiryYear.textContent = this.value;   
     } 
-})
+    if (this.value.length > this.maxLength) {
+        this.value = this.value.slice(0, this.maxLength);
+    }
 
-if (formExpiryYear.value < year) {
-    console.log('expired card')
-}
+})
+formExpiryYear.addEventListener('blur', function() {
+    // Check if the input field is empty
+    if(this.value === '') {
+        // Display an error message
+        alert('The input field is empty!');
+    }
+    if(this.value < year) {
+        console.log('expired card')
+
+    }
+});
+
 formCVV.addEventListener('input', function() {
     if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);
 
