@@ -98,7 +98,10 @@ formExpiryYear.addEventListener('blur', function() {
     // Check if the input field is empty
     if(this.value === '') {
         // Display an error message
-        alert('The input field is empty!');
+        const blankErrorMsg = document.createElement('p')
+        blankErrorMsg.innerHTML = "Can't be blank."
+        
+        // alert('The input field is empty!');
     }
     if(this.value < year) {
         console.log('expired card')
