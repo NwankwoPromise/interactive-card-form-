@@ -39,11 +39,11 @@
         </div>
         <div class="form-container">
             <form action="">
-                <div class="form-sections">
+                <div class="form-sections name-section">
                     <label for="form-cardholder-name">CARDHOLDER NAME</label> <br>
                     <input type="text" name="form-cardholder-name" id="form-cardholder-name" placeholder="e.g. Jane Appleseed">
                 </div>
-                <div class="form-sections">
+                <div class="form-sections number-section">
                     <label for="form-card-number">CARD NUMBER</label> <br>
                     <input type="text" inputmode="numeric"  name="form-card-number" id="form-card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
                 </div>
@@ -51,18 +51,20 @@
                     <div class="mm-yy-container">
                         <label for="form-expiry-date">EXP. DATE (MM/YY)</label> <br>
                         <div class="mm-yy" id="form-expiry-date">
-                            <input type="number" name="form-MM" id="form-MM" placeholder="MM" maxlength="2">
-                            <input type="number" name="form-YY" id="form-YY" placeholder="YY" maxlength="2">
+                            <input type="text" inputmode="numeric"  name="form-MM" id="form-MM" placeholder="MM" maxlength="2">
+                            <input type="text" inputmode="numeric"  name="form-YY" id="form-YY" placeholder="YY" maxlength="2">
                         </div>
+                        
                     </div>
                     <div class="cvv-container">
                         <label for="form-CVV">CVV</label> <br>
-                        <input type="number" name="form-cvv" id="form-cvv" placeholder="e.g. 123" minlength="3" maxlength="3">
+                        <input type="text" inputmode="numeric"  name="form-cvv" id="form-cvv" placeholder="e.g. 123" minlength="3" maxlength="3">
                     </div>
+                    <span class="blank-error-message">Can't be blank.</span>
                </div>
     
                <div class="confirm-btn">
-                    <button>Confirm</button>
+                    <button type="submit">Confirm</button>
                </div>
             </form>
         </div>

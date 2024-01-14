@@ -31,12 +31,14 @@ body {
     background-size: cover;
     position: relative;
     height: 250px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
-
+.form-sections {
+    position: relative;
+}
 .bg-card-back-container {
     box-sizing: border-box;
     background-image: url('images/bg-card-back.png');
@@ -213,16 +215,24 @@ input:focus {
 
 input:hover {
     border: 1px solid var(--Verydarkviolet);
+    outline: none;
+}
+.remove-hover:hover, .remove-hover:focus {
+    border: 1px solid red;
+    outline: none;
 }
 .expiry-cvv-container {
     display: flex;
     align-items: end;
     padding-bottom: 1.25rem;
+    position: relative;
+    /* outline: 1px solid red; */
 }
 
 .mm-yy-container {
     width: 60%;
     position: relative;
+    /* outline: 1px solid red; */
 }
 
 .mm-yy {
@@ -238,8 +248,9 @@ input:hover {
 
 .blank-error-message {
     position: absolute;
-    top: 110%;
+    top: 80%;
     color: red;
+    display: none;
     font-size: 14px;
 }
 .cvv-container {
