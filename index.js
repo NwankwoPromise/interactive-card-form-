@@ -9,48 +9,65 @@ const cardNumber = document.getElementById('card-number')
 const cardExpiryMonth = document.getElementById('card-MM')
 const cardExpiryYear = document.getElementById('card-YY')
 const cardCVV = document.getElementById('card-cvv')
-const errorMsg = document.querySelector('.blank-error-message')
-const customErrorMsg = errorMsg.cloneNode(true);
 
-
-formName.addEventListener('input', function() {
-    console.log(formName.value)
-    if (formName.value.length === 0) { cardName.textContent = 'Jane Appleseed'; }   
-    else { cardName.textContent = this.value;} 
-} )
 
 const createErrorMsg = function(containerClass, errorMessage) {
+    //create span element containing error message
     const errorMsg = document.createElement('span')
-    errorMsg.classList.add('blank-error-message')
+
+    //add pre existing class styled with css
+    errorMsg.classList.add('error-message')
+
+    //call the div or container the error messsage will be appended to 
     const errorMsgContainer = document.querySelector(containerClass);
+
+    // append error message
     errorMsgContainer.appendChild(errorMsg);
-    errorMsg.innerHTML = errorMessage
+    //return the span element
     return errorMsg
 }  
-const nameErrorMsg = createErrorMsg('.name-section', 'Name is required.');
 
-const handleBlur = function(formField, errorMsg) {
-    errorMsg.style.display = formField.value === '' ? 'block' : 'none';
+// store the different error messages in variables to be used when needed
+const nameErrorMsg = createErrorMsg('.name-section'); //when name field is blank
+const numberErrorMsg = createErrorMsg('.number-section'); // when card number field is blank
+// const incompleteNumberErrorMsg = createErrorMsg('.number-section', 'Please enter a valid card number.'); // card number is incomplete
+const monthOrYearErrorMsg = createErrorMsg('.mm-yy-container') // month/year input field is blank
+const cvvErrorMsg = createErrorMsg('.cvv-container') // CVV input field is blank
+
+    // const isEmpty = formField.value === ''
+
+const addErrorState = function(formField, errorMsg) {
+    // const tooShort = formNumber.value.length > 0 && formNumber.value.length < 16
+    errorMsg.style.display = 'block'
     errorMsg.style.top = '100%';
-    formField.style.border = formField.value === '' ? '1px solid red' : '';
-    formField.classList.toggle("remove-hover", formField.value === '');
-};
-// createErrorMsg('.name-section', 'Name is required.')
-formName.addEventListener('blur', function() {
-    // customErrorMsg.innerHTML = ;
-    handleBlur(formName, nameErrorMsg);
-    // if (formName.value === '') {
-    //     customErrorMsg.style.display = 'block';  // Show the error message
-    //     customErrorMsg.style.top = '100%';
-    //     this.style.border = "1px solid red";
-    //     this.classList.add("remove-hover");
-    // } else {
-    //     customErrorMsg.style.display = 'none';  // Hide the error message
-    //     this.style.border = "";  // Reset the border
-    //     this.classList.remove("remove-hover");
-    // }
-} )
+    formField.style.border = '1px solid red'
+    formField.classList.add("remove-hover");     
+} 
+const removeErrorState = function(formField, errorMsg) {
+    // const tooShort = formNumber.value.length > 0 && formNumber.value.length < 16
+    errorMsg.style.display = 'none'
+    //errorMsg.style.top = '100%';
+    formField.style.border = ''
+    formField.classList.remove("remove-hover");     
+} 
 
+
+formName.addEventListener('input', function(){
+    if(formName.value.length === 0) {
+        cardName.textContent = 'Promise Dinma'
+    } else {
+        cardName.textContent = this.value
+    }
+})
+formName.addEventListener('blur', function() {
+    // handleBlur(formName, nameErrorMsg);
+    if (formName.value === '') {
+        addErrorState(this, nameErrorMsg)
+        nameErrorMsg.textContent = 'Name is required'
+    } else {
+        removeErrorState(this, nameErrorMsg)
+    }
+} )
 
 formNumber.addEventListener('input', function() {
 
@@ -59,26 +76,18 @@ formNumber.addEventListener('input', function() {
     if (formNumber.value.length === 0) { cardNumber.textContent = '0000 0000 0000 0000'; }   
     else { cardNumber.textContent = this.value; } 
 } )
-
-createErrorMsg('.number-section')
 formNumber.addEventListener('blur', function() {
-    customErrorMsg.innerHTML = 'Card number is required.';
-
-    if (formNumber.value === '') {
-        customErrorMsg.style.display = 'block';  // Show the error message
-        customErrorMsg.style.top = '100%';
-        this.style.border = "1px solid red";
-        this.classList.add("remove-hover");
+    if(formNumber.value.length > 0 && formNumber.value.length < 16) {
+        console.log(true)
+        handleBlur(formNumber);
+        addErrorState(this, numberErrorMsg)
     } else {
-        customErrorMsg.style.display = 'none';  // Hide the error message
-        this.style.border = "";  // Reset the border
-        this.classList.remove("remove-hover");
+        handleBlur(formNumber, numberErrorMsg);
     }
+
 } )
 // Create a new Date object for the current date
 var currentDate = new Date();
-// // Add 3 years to the current date
-// currentDate.setFullYear(currentDate.getFullYear() + 3);
 
 // Get the month and year
 var month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JavaScript
@@ -86,29 +95,51 @@ var month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0
 var year = String(currentDate.getFullYear()).slice(-2); // Get the last 2 digits of the year
 
 
-// formExpiryMonth.value = month
-// formExpiryYear.value = year
-// cardExpiryMonth.textContent = month
-// cardExpiryYear.textContent = year
-// var monthPattern = /^(0?[1-9]|1[012])$/;
-
-function toggleBlankErrorMsg(el1, el2) {
+//work on this and mm/yy error function
+function toggleErrorMsg(el1, el2, errorMsg) {
     // Check if the input field is empty
-    if (el1.value === '') {
-        errorMsg.style.display = 'block';  // Show the error message
-        el1.style.border = "1px solid red";
-        el1.classList.add("remove-hover");
+    // const isEmpty = el1.value === ''
+    // addErrorState(el1, errorMsg)
+    // errorMsg.textContent = 'Can not be blank.'
+
+//    if the first element doesnt have an error state attached but the second does, hide the triggered error until the already existing one has been addressed
+    if (!el1.classList.contains('remove-hover') && el2.classList.contains('remove-hover')) { 
+        errorMsg.style.display = 'none';
+        // removeErrorState(el1)
     } else {
-        if(el2.classList.contains("remove-hover")){
-            errorMsg.style.display = 'block';
-        } else {
-            errorMsg.style.display = 'none';  // Hide the error message
-        }
-        el1.style.border = "";  // Reset the border
-        el1.classList.remove("remove-hover");
-        console.log(true)
+        errorMsg.style.display = 'block';
     }
+//    }
+   
+    //     el1.style.border = "";  // Reset the border
+    //     el1.classList.remove("remove-hover");
+    //     console.log(true)
+    // // }
 }
+// function toggleBlankErrorMsg(el1, el2, errorMsg) {
+//     // Check if the input field is empty
+//     const isEmpty = el1.value === ''
+
+//     // Show/hide the error message
+//     errorMsg.style.display = isEmpty ? 'block' : 'none' 
+
+    
+//     el1.style.border = isEmpty ? '1px solid red' : ''
+//     el1.classList.toggle("remove-hover", isEmpty);
+//     console.log(errorMsg)
+//    if(!isEmpty) {
+//     if (el2.classList.contains("remove-hover")) {
+//         errorMsg.style.display = 'block';
+//     } else {
+//         errorMsg.style.display = 'none';
+//     }
+//    }
+   
+//     //     el1.style.border = "";  // Reset the border
+//     //     el1.classList.remove("remove-hover");
+//     //     console.log(true)
+//     // // }
+// }
 
 formExpiryMonth.addEventListener('input', function() {
     formExpiryMonth.value = formExpiryMonth.value.replace(/\D/g, '')
@@ -144,10 +175,12 @@ formExpiryMonth.addEventListener('input', function() {
     }  
 })
 formExpiryMonth.addEventListener('blur', function() {
-    toggleBlankErrorMsg(formExpiryMonth, formExpiryYear)
+    toggleErrorMsg(formExpiryMonth, formExpiryYear, monthOrYearErrorMsg)
 });
 
 formExpiryYear.addEventListener('input', function(){
+    formExpiryYear.value = formExpiryYear.value.replace(/\D/g, '')
+
     if (this.value.length === 0 ) {
         cardExpiryYear.textContent = '00';
         this.value = this.value.substring(1);
@@ -162,12 +195,15 @@ formExpiryYear.addEventListener('input', function(){
 
 })
 formExpiryYear.addEventListener('blur', function() {
-    toggleBlankErrorMsg(formExpiryYear, formExpiryMonth)
+    if (formName.value === '') {
+        addErrorState(this, monthOrYearErrorMsg)
+        monthOrYearErrorMsg.textContent = 'Can not be blank.'
+    } else {
+        removeErrorState(this, monthOrYearErrorMsg)
+    }
+        // addErrorState(el1, errorMsg)
 
-    // if(this.value < year) {
-    //     console.log('expired card')
-
-    // }
+    // toggleErrorMsg(formExpiryYear, formExpiryMonth, monthOrYearErrorMsg)
     
 });
 
@@ -182,25 +218,12 @@ formCVV.addEventListener('input', function() {
         cardCVV.textContent = this.value;   
     } 
 })
-const blankErrorMsgContainer = document.querySelector('.expiry-cvv-container')
-const cvvBlankErrorMsg = errorMsg.cloneNode(true); // 'true' indicates deep cloning, including children
-blankErrorMsgContainer.appendChild(cvvBlankErrorMsg)
 formCVV.addEventListener('blur', function() {
-   
-    // Check if the input field is empty
-    if (this.value === '') {
-        cvvBlankErrorMsg.style.display = 'block';  // Show the error message
-        this.style.border = "1px solid red";
-        cvvBlankErrorMsg.style.left = "60%"
-        this.classList.add("remove-hover");
-        console.log('Before:', cvvBlankErrorMsg.style.display);
+    if (formCVV.value === '') {
+        addErrorState(this, cvvErrorMsg)
+        cvvErrorMsg.textContent = "Can't be blank"
     } else {
-        // console.log(cvvBlankErrorMsg);
-        cvvBlankErrorMsg.style.display = 'none';
-        console.log('After:', cvvBlankErrorMsg.style.display);
-        this.style.border = "";  // Reset the border
-        this.classList.remove("remove-hover");
-        console.log(cvvBlankErrorMsg.style.display)
+        removeErrorState(this, cvvErrorMsg)
     }
-})
+   })
 }

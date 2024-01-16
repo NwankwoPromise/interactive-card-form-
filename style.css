@@ -246,9 +246,9 @@ input:hover {
     padding-bottom: .625rem;
 }
 
-.blank-error-message {
+.error-message {
     position: absolute;
-    top: 80%;
+    top: 100%;
     color: red;
     display: none;
     font-size: 14px;
@@ -256,6 +256,8 @@ input:hover {
 .cvv-container {
     max-width: 40%;
     position: relative;
+    /* padding-top: 150px; */
+    /* outline: 1px solid red; */
 }
 
 .cvv-container input {
