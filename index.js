@@ -92,7 +92,7 @@ var currentDate = new Date();
 // Get the month and year
 var month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JavaScript
 
-var year = String(currentDate.getFullYear()).slice(-2); // Get the last 2 digits of the year
+// var year = String(currentDate.getFullYear()).slice(-2); // Get the last 2 digits of the year
 
 
 //work on this and mm/yy error function
